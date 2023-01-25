@@ -74,7 +74,8 @@
       "<rootDir>/libs/"
     ],
     "moduleNameMapper": {
-      "^@lib/providers(|/.*)$": "<rootDir>/libs/providers/src/$1"
+      "^@lib/providers(|/.*)$": "<rootDir>/libs/providers/src/$1",
+      "^@lib/entities(|/.*)$": "<rootDir>/libs/entities/src/$1"
     }
   }
 }

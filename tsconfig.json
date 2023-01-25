@@ -23,6 +23,12 @@
       ],
       "@lib/providers/*": [
         "libs/providers/src/*"
+      ],
+      "@lib/entities": [
+        "libs/entities/src"
+      ],
+      "@lib/entities/*": [
+        "libs/entities/src/*"
       ]
     }
   }
