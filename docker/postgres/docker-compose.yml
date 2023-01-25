@@ -1,0 +1,41 @@
+# Use postgres/example user/password credentials
+version: '3.5'
+
+services:
+  postgres_post:
+    container_name: postgres_post_container
+    build: postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-123456}
+      POSTGRES_DB: ${POSTGRES_DB:-postgres_db}
+      PGDATA: ${PGDATA:-/data/postgres}
+    volumes:
+      - postgres_post:${PGDATA:-/data/postgres}
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    networks:
+      - postgres_post
+    restart: unless-stopped
+
+  pgadmin_post:
+    container_name: pgadmin_post_container
+    build: ./pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-admin@admin.com}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-123456}
+    volumes:
+      - pgadmin_post:/root/.pgadmin
+    ports:
+      - "${PGADMIN_PORT:-5050}:80"
+    networks:
+      - postgres_post
+    restart: unless-stopped
+
+networks:
+  postgres_post:
+    driver: bridge
+
+volumes:
+  postgres_post:
+  pgadmin_post:
