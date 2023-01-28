@@ -30,6 +30,7 @@
     "@nestjs/common": "^9.0.0",
     "@nestjs/config": "^2.2.0",
     "@nestjs/core": "^9.0.0",
+    "@nestjs/cqrs": "^9.0.1",
     "@nestjs/platform-express": "^9.0.0",
     "@nestjs/typeorm": "^9.0.1",
     "pg": "^8.8.0",
@@ -84,7 +85,8 @@
     ],
     "moduleNameMapper": {
       "^@lib/providers(|/.*)$": "<rootDir>/libs/providers/src/$1",
-      "^@lib/entities(|/.*)$": "<rootDir>/libs/entities/src/$1"
+      "^@lib/entities(|/.*)$": "<rootDir>/libs/entities/src/$1",
+      "^@lib/post(|/.*)$": "<rootDir>/libs/post/src/$1"
     }
   }
 }

@@ -24,6 +24,15 @@
       "compilerOptions": {
         "tsConfigPath": "libs/entities/tsconfig.lib.json"
       }
+    },
+    "post": {
+      "type": "library",
+      "root": "libs/post",
+      "entryFile": "index",
+      "sourceRoot": "libs/post/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/post/tsconfig.lib.json"
+      }
     }
   }
 }
