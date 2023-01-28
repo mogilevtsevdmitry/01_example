@@ -1,6 +1,6 @@
 import { PostEntity } from '@lib/entities';
 import { PaginationDto } from '@lib/shared/dto';
-import { Injectable, Logger, NotFoundException } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { plainToInstance } from 'class-transformer';
 import { FindManyOptions, Repository } from 'typeorm';
@@ -16,11 +16,8 @@ export class PostAdapter implements PostRepository {
   ) {}
 
   async save(post: IPost): Promise<PostAggregate> {
-    if (post?.id) {
-      const existPost = await this.findOne(post.id);
-      if (!existPost) {
-        throw new NotFoundException(`Post by id ${post.id} not found`);
-      }
+    const existPost = await this.findOne(post.id);
+    if (existPost) {
       const { id, ...toUpdate } = post;
       await this.postRepository.update({ id }, toUpdate);
       return this.findOne(post.id);
@@ -37,7 +34,7 @@ export class PostAdapter implements PostRepository {
         return null;
       });
     if (!existPost) {
-      throw new NotFoundException(`Post by id ${id} not found`);
+      return null;
     }
     return PostAggregate.create(existPost);
   }
