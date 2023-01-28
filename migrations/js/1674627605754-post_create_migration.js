@@ -36,12 +36,12 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.createPostMigration1674800695941 = void 0;
-var createPostMigration1674800695941 = /** @class */ (function () {
-    function createPostMigration1674800695941() {
-        this.name = 'createPostMigration1674800695941';
+exports.postCreateMigration1674627605754 = void 0;
+var postCreateMigration1674627605754 = /** @class */ (function () {
+    function postCreateMigration1674627605754() {
+        this.name = 'postCreateMigration1674627605754';
     }
-    createPostMigration1674800695941.prototype.up = function (queryRunner) {
+    postCreateMigration1674627605754.prototype.up = function (queryRunner) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -53,7 +53,7 @@ var createPostMigration1674800695941 = /** @class */ (function () {
             });
         });
     };
-    createPostMigration1674800695941.prototype.down = function (queryRunner) {
+    postCreateMigration1674627605754.prototype.down = function (queryRunner) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -65,6 +65,6 @@ var createPostMigration1674800695941 = /** @class */ (function () {
             });
         });
     };
-    return createPostMigration1674800695941;
+    return postCreateMigration1674627605754;
 }());
-exports.createPostMigration1674800695941 = createPostMigration1674800695941;
+exports.postCreateMigration1674627605754 = postCreateMigration1674627605754;
