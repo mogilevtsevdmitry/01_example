@@ -1,3 +1,4 @@
+import { DomainError } from '@lib/errors';
 import { randomStringGenerator } from '@nestjs/common/utils/random-string-generator.util';
 import { Exclude } from 'class-transformer';
 import { IsUUID, validateSync } from 'class-validator';
@@ -44,7 +45,7 @@ export class PostAggregate extends PostServices implements IPost {
     _post.updatedAt = post?.id ? new Date().toISOString() : _post.updatedAt;
     const errors = validateSync(_post, { whitelist: true });
     if (!!errors.length) {
-      throw new Error('Post not valid');
+      throw new DomainError(errors, 'Post not valid');
     }
     return _post;
   }

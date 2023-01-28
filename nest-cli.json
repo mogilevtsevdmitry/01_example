@@ -33,6 +33,15 @@
       "compilerOptions": {
         "tsConfigPath": "libs/post/tsconfig.lib.json"
       }
+    },
+    "errors": {
+      "type": "library",
+      "root": "libs/errors",
+      "entryFile": "index",
+      "sourceRoot": "libs/errors/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/errors/tsconfig.lib.json"
+      }
     }
   }
 }
