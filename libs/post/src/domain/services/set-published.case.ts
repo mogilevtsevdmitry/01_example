@@ -5,5 +5,5 @@ export interface ISetBublished {
 }
 
 export const SET_PUBLISHED = async function (this: IPost) {
-  this.published = true;
+  this.isPublished = true;
 };

@@ -2,11 +2,7 @@ import { DomainError } from '@lib/errors';
 import { randomStringGenerator } from '@nestjs/common/utils/random-string-generator.util';
 import { Exclude } from 'class-transformer';
 import { IsUUID, validateSync } from 'class-validator';
-import {
-  IsBoolean,
-  IsNotEmpty,
-  IsString,
-} from 'class-validator/types/decorator/decorators';
+import { IsBoolean, IsNotEmpty, IsString } from 'class-validator';
 import { IPost } from './post.interface';
 import { PostServices } from './services';
 
@@ -28,7 +24,7 @@ export class PostAggregate extends PostServices implements IPost {
 
   @IsBoolean()
   @Exclude()
-  published = false;
+  isPublished = false;
 
   @IsString()
   createdAt = new Date().toISOString();
