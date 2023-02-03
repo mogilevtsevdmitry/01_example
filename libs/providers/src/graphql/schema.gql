@@ -1,0 +1,27 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type PostResponse {
+  """Идентификатор автора сообщения"""
+  authorId: String!
+
+  """Дата создания поста"""
+  createdAt: String!
+
+  """Идентификатор поста"""
+  id: ID!
+
+  """Сообщение поста"""
+  message: String!
+
+  """Заголовок поста"""
+  title: String!
+
+  """Дата обновления поста"""
+  updatedAt: String!
+}
+
+type Query {
+  post(id: String!): PostResponse!
+}
