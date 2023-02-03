@@ -3,10 +3,19 @@ import { CurrentUser, ICurrentUser, Public } from '@lib/auth';
 import { JwtGuard } from '@lib/auth/guards/jwt.guard';
 import { PostFacade } from '@lib/post/application-services';
 import { PaginationDto } from '@lib/shared/dto';
-import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  Patch,
+  Post,
+  Put,
+  Query,
+} from '@nestjs/common';
 import { UseGuards } from '@nestjs/common/decorators/core/use-guards.decorator';
 import { ParseUUIDPipe } from '@nestjs/common/pipes/parse-uuid.pipe';
-import { CreatePostDto } from './dto';
+import { CreatePostDto, UpdatePostDto } from './dto';
 import { ResponseWithPaginaton } from '@lib/shared';
 import { PostAggregate } from '@lib/post';
 
@@ -46,5 +55,21 @@ export class PostController {
       data,
       total: count,
     };
+  }
+
+  @Put()
+  updatePost(
+    @CurrentUser() user: ICurrentUser,
+    @Body() updatePost: UpdatePostDto,
+  ) {
+    return this.postFacade.commands.updatePost({
+      ...updatePost,
+      authorId: user.userId,
+    });
+  }
+
+  @Patch(':id')
+  setPublished(@Param('id', ParseUUIDPipe) id: string) {
+    return this.postFacade.commands.setPublished(id);
   }
 }
