@@ -9,6 +9,7 @@ input CreatePostInput {
 
 type Mutation {
   createPost(createPostInput: CreatePostInput!): PostResponse!
+  setPublishedPost(id: String!): PostResponse!
 }
 
 type PginatedPosts {
