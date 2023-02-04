@@ -2,6 +2,13 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type PginatedPosts {
+  data: [PostResponse!]
+  limit: Int!
+  offset: Int!
+  total: Int!
+}
+
 type PostResponse {
   """Идентификатор автора сообщения"""
   authorId: String!
@@ -24,4 +31,11 @@ type PostResponse {
 
 type Query {
   post(id: String!): PostResponse!
+  posts(
+    """Количество строк"""
+    limit: Int! = 15
+
+    """Пропуск строк"""
+    offset: Int! = 0
+  ): PginatedPosts!
 }
