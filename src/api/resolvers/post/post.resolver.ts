@@ -1,7 +1,9 @@
+import { randomStringGenerator } from '@nestjs/common/utils/random-string-generator.util';
 import { PostFacade } from '@lib/post/application-services';
 import { PaginationDto } from '@lib/shared';
-import { Args, Query, Resolver } from '@nestjs/graphql';
+import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { plainToInstance } from 'class-transformer';
+import { CreatePostInput } from '../inputs';
 import { PginatedPosts, PostResponse } from '../responses';
 
 @Resolver(() => PostResponse)
@@ -24,5 +26,13 @@ export class PostResolver {
       data,
       total,
     };
+  }
+
+  @Mutation(() => PostResponse)
+  async createPost(@Args('createPostInput') createPostInput: CreatePostInput) {
+    return this.postFacade.commands.createPost({
+      ...createPostInput,
+      authorId: randomStringGenerator(),
+    });
   }
 }
