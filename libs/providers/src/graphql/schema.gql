@@ -9,6 +9,7 @@ input CreatePostInput {
 
 type Mutation {
   createPost(createPostInput: CreatePostInput!): PostResponse!
+  deletePost(id: String!): Boolean!
   setPublishedPost(id: String!): PostResponse!
   updatePost(updatePostInput: UpdatePostInput!): PostResponse!
 }
