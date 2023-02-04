@@ -53,6 +53,12 @@
       ],
       "@lib/auth/*": [
         "libs/auth/src/*"
+      ],
+      "@amqp/amqp-contracts": [
+        "libs/amqp-contracts/src"
+      ],
+      "@amqp/amqp-contracts/*": [
+        "libs/amqp-contracts/src/*"
       ]
     }
   }

@@ -26,6 +26,7 @@ module.exports = {
       {
         'endOfLine': 'auto',
       }
-    ]
+    ],
+    '@typescript-eslint/no-namespace': 'off'
   },
 };

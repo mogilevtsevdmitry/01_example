@@ -104,7 +104,8 @@
       "^@lib/post(|/.*)$": "<rootDir>/libs/post/src/$1",
       "^@lib/errors(|/.*)$": "<rootDir>/libs/errors/src/$1",
       "^@lib/shared(|/.*)$": "<rootDir>/libs/shared/src/$1",
-      "^@lib/auth(|/.*)$": "<rootDir>/libs/auth/src/$1"
+      "^@lib/auth(|/.*)$": "<rootDir>/libs/auth/src/$1",
+      "^@amqp/amqp-contracts(|/.*)$": "<rootDir>/libs/amqp-contracts/src/$1"
     }
   }
 }
