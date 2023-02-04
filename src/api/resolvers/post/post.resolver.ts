@@ -23,8 +23,6 @@ export class PostResolver {
   @Query(() => PginatedPosts, { name: 'posts' })
   async getPosts(@Args() paginationDto: PaginationDto) {
     const pagination = plainToInstance(PaginationDto, paginationDto);
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     const [data, total] = await this.postFacade.queries.getAllPosts(pagination);
     return {
       ...pagination,

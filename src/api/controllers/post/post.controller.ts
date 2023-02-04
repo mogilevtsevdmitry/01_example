@@ -69,8 +69,6 @@ export class PostController {
     @Query() paginationDto: PaginationDto,
   ): Promise<ResponseWithPaginaton<PostAggregate>> {
     const pagination = plainToInstance(PaginationDto, paginationDto);
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     const [data, count] = await this.postFacade.queries.getAllPosts(pagination);
     return {
       ...pagination,
