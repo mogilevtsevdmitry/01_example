@@ -4,7 +4,12 @@ import {
 } from '@golevelup/nestjs-rabbitmq';
 import { ConfigService } from '@nestjs/config';
 
-const AMQP_EXCHANGES: RabbitMQExchangeConfig[] = [];
+const AMQP_EXCHANGES: RabbitMQExchangeConfig[] = [
+  {
+    name: 'post',
+    type: 'direct',
+  },
+];
 
 export const amqpConfig = (configService: ConfigService): RabbitMQConfig => {
   const uri = configService.get('AMQP_URI');
