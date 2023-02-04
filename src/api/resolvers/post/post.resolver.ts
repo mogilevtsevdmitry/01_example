@@ -3,7 +3,7 @@ import { PostFacade } from '@lib/post/application-services';
 import { PaginationDto } from '@lib/shared';
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { plainToInstance } from 'class-transformer';
-import { CreatePostInput } from '../inputs';
+import { CreatePostInput, UpdatePostInput } from '../inputs';
 import { PginatedPosts, PostResponse } from '../responses';
 
 @Resolver(() => PostResponse)
@@ -32,6 +32,14 @@ export class PostResolver {
   async createPost(@Args('createPostInput') createPostInput: CreatePostInput) {
     return this.postFacade.commands.createPost({
       ...createPostInput,
+      authorId: randomStringGenerator(),
+    });
+  }
+
+  @Mutation(() => PostResponse)
+  async updatePost(@Args('updatePostInput') updatePostInput: UpdatePostInput) {
+    return this.postFacade.commands.updatePost({
+      ...updatePostInput,
       authorId: randomStringGenerator(),
     });
   }
