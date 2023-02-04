@@ -4,24 +4,15 @@ export interface CreatePostRequest {
 
   /** Сообщение поста */
   message: string;
+
+  authorId: string;
 }
 
 export interface PostResponse {
-  /** Идентификатор поста */
-  id: string;
-
-  /** Заголовок поста */
   title: string;
-
-  /** Сообщение поста */
   message: string;
-
-  /** Идентификатор автора поста */
   authorId: string;
-
-  /** Дата создания */
+  id: string;
   createdAt: string;
-
-  /** Дата обновления */
   updatedAt: string;
 }
